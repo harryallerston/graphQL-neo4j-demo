@@ -27,6 +27,8 @@ class Person:
     born: Optional[int]    
 
     # Lazily evaluated fields and their resolvers
+
+    # Link person to movies they acted in
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     acted_in: List[Movie] = strawberry.field()
     @strawberry.field
@@ -47,7 +49,8 @@ class Person:
                 for record in result
             ]
             return movies
-        
+    
+    # Link person to movies they directed
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
     directed: List[Movie] = strawberry.field()
     @strawberry.field
@@ -68,7 +71,8 @@ class Person:
                 for record in result
             ]
             return movies
-        
+    
+    # Link person to movies they produced
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -    
     produced: List[Movie] = strawberry.field()
     @strawberry.field
@@ -90,6 +94,7 @@ class Person:
             ]
             return movies
         
+    # Match persond to movies they wrote
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     wrote: List[Movie] = strawberry.field()
     @strawberry.field
@@ -111,6 +116,7 @@ class Person:
             ]
             return movies
         
+    # Link person to movies they reviewed
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     reviewed: List[Movie] = strawberry.field()
     @strawberry.field
@@ -131,7 +137,8 @@ class Person:
                 for record in result
             ]
             return movies
-    
+            
+    # Link perston to people they follow
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
     follows: List['Person'] = strawberry.field()
     @strawberry.field

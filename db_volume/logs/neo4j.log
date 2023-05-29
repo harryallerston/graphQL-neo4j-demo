@@ -5454,3 +5454,14 @@ Caused by: java.util.zip.ZipException: Some jar procedure files (graph-data-scie
 2023-05-29 21:18:41.874+0000 INFO  Neo4j Server shutdown initiated by request
 2023-05-29 21:18:41.886+0000 INFO  Stopping...
 2023-05-29 21:18:47.209+0000 INFO  Stopped.
+2023-05-29 21:30:56.919+0000 WARN  Use of deprecated setting 'dbms.memory.pagecache.size'. It is replaced by 'server.memory.pagecache.size'.
+2023-05-29 21:30:56.939+0000 WARN  Use of deprecated setting 'dbms.memory.heap.max_size'. It is replaced by 'server.memory.heap.max_size'.
+2023-05-29 21:30:56.958+0000 INFO  Starting...
+2023-05-29 21:31:06.522+0000 INFO  This instance is ServerId{0eaf98e4} (0eaf98e4-650c-4133-b597-7981ea9c8b12)
+2023-05-29 21:36:46.256+0000 INFO  ======== Neo4j 5.8.0 ========
+2023-05-29 21:37:13.120+0000 INFO  Bolt enabled on 0.0.0.0:7687.
+2023-05-29 21:37:15.257+0000 INFO  Remote interface available at http://localhost:7474/
+2023-05-29 21:37:15.309+0000 INFO  id: CE1C66437C52CA28A1577F0286905497F91D3C1E15D9D71415792567ADB2208D
+2023-05-29 21:37:15.315+0000 INFO  name: system
+2023-05-29 21:37:15.317+0000 INFO  creationDate: 2023-05-27T17:04:24.295Z
+2023-05-29 21:37:15.323+0000 INFO  Started.
