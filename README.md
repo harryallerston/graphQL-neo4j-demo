@@ -29,6 +29,6 @@ Credentials are 'neo4j/terriblyinsecure'.
 To access the graphQL API, navigate to 
 
 ```
-http://127.0.0.1/graphql
+http://127.0.0.1:8000/graphql
 ```
 
