@@ -7,7 +7,7 @@ The API is built using the Strawberry graphQL framework (https://strawberry.rock
 
 The goal of the project was to create an API frontend to the demo dataset, giving easy access to all node data within it, as well as entity relations. 
 
-
+A nice overview of the library and reasons to use graphQL can be found here: (https://www.youtube.com/watch?v=J9AYhCmKMzo)
 
 ## Usage
 ---
