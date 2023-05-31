@@ -19,6 +19,29 @@ class Movie:
     released: Optional[int]
     tagline: Optional[str]
 
+    # Lazily evaluated fields and their resolvers
+
+    # Find actors appearing in the movie
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    actors: List['Person'] = strawberry.field()
+    @strawberry.field
+    async def actors(self) -> List['Person']:
+        with driver.session() as session:
+            query = """
+            MATCH (p:Person)-[:ACTED_IN]->(m:Movie)
+            WHERE toLower(m.title) = toLower($title)
+            RETURN p.name AS name, p.born as born
+            """
+            result = session.run(query, title=self.title)
+            people = [
+                Person(
+                    born=record["born"],
+                    name=record["name"]
+                )
+                for record in result
+            ]
+            return people
+
 # ---------------------------------------------------------------------------------------------------
 
 @strawberry.type
@@ -137,7 +160,7 @@ class Person:
                 for record in result
             ]
             return movies
-            
+
     # Link perston to people they follow
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
     follows: List['Person'] = strawberry.field()
