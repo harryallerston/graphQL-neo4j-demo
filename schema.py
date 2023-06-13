@@ -202,8 +202,9 @@ class Query:
             else:
                 names = [x.lower() for x in names]
                 query = """
+                UNWIND $names as val
                 MATCH (p:Person)
-                WHERE toLower(p.name) IN $names
+                WHERE toLower(p.name) = val
                 RETURN p.born AS born, p.name AS name
                 """
                 result = session.run(query, names=names)
@@ -230,8 +231,9 @@ class Query:
             else:
                 titles = [x.lower() for x in titles]
                 query = """
+                UNWIND $titles as val
                 MATCH (m:Movie)
-                WHERE toLower(m.title) IN $titles
+                WHERE toLower(m.title) = val
                 RETURN m.released AS released, m.title AS title, m.tagline AS tagline
                 """
                 result = session.run(query, titles=titles)
